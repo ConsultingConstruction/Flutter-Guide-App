@@ -20,14 +20,20 @@ class _GuidesViewState extends State<GuidesView> {
   Uint8List? image;
 
   getJSONGuides() async {
-    // ! Code to generate base64 strings from files
+    // ! Code to generate base64 strings from files ////////////////////////////
     // final ibuffer =
     //     (await rootBundle.load("images/ARCHICAD.png")).buffer.asUint8List();
     // final bufferEncode = base64Encode(ibuffer);
     // print(bufferEncode);
+    // ! ///////////////////////////////////////////////////////////////////////
 
+    // * Loads the JSON with the guides data
     final String response = await rootBundle.loadString('JSON/guides.json');
+
+    // * Decode the string to a JSON object
     final data = await json.decode(response);
+
+    // * Rebuild the widget with the new JSON data object
     setState(() {
       guidesData = Guides.fromJson(data);
     });
@@ -36,6 +42,8 @@ class _GuidesViewState extends State<GuidesView> {
   @override
   void initState() {
     super.initState();
+
+    // * Get the JSON file
     getJSONGuides();
   }
 
@@ -51,12 +59,15 @@ class _GuidesViewState extends State<GuidesView> {
           itemBuilder: itemBuilder,
           itemCount: guidesData?.guides?.length ?? 0,
           gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-              crossAxisCount: 5),
+            crossAxisCount: 5,
+          ),
         ),
       ),
     );
   }
 
+  /// Return a [Card] widget with [gesture detection] for each of the guides on
+  /// the JSON object
   Widget itemBuilder(BuildContext context, int index) {
     return GestureDetector(
       onTap: () {
