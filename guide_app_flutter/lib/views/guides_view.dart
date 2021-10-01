@@ -80,11 +80,14 @@ class _GuidesViewState extends State<GuidesView> {
             mainAxisSize: MainAxisSize.min,
             children: [
               guidesData?.guides?[index].iconByteData != null
-                  ? Image.memory(
-                      base64Decode(
-                          guidesData?.guides?[index].iconByteData ?? ""),
-                      width: 250,
-                      height: 250,
+                  ? AspectRatio(
+                      aspectRatio: 3 / 2,
+                      child: Image.memory(
+                        base64Decode(
+                            guidesData?.guides?[index].iconByteData ?? ""),
+                        width: 250,
+                        height: 250,
+                      ),
                     )
                   : const SizedBox(),
               Text(
