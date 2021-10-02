@@ -3,7 +3,7 @@ import 'dart:typed_data';
 
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
+import 'package:guide_app_flutter/controllers/guides_controller.dart';
 import 'package:guide_app_flutter/models/guides.dart';
 import 'package:guide_app_flutter/utils/router.gr.dart';
 
@@ -19,32 +19,16 @@ class _GuidesViewState extends State<GuidesView> {
 
   Uint8List? image;
 
-  getJSONGuides() async {
-    // ! Code to generate base64 strings from files ////////////////////////////
-    // final ibuffer =
-    //     (await rootBundle.load("images/ARCHICAD.png")).buffer.asUint8List();
-    // final bufferEncode = base64Encode(ibuffer);
-    // print(bufferEncode);
-    // ! ///////////////////////////////////////////////////////////////////////
-
-    // * Loads the JSON with the guides data
-    final String response = await rootBundle.loadString('JSON/guides.json');
-
-    // * Decode the string to a JSON object
-    final data = await json.decode(response);
-
-    // * Rebuild the widget with the new JSON data object
-    setState(() {
-      guidesData = Guides.fromJson(data);
-    });
-  }
-
   @override
   void initState() {
     super.initState();
 
     // * Get the JSON file
-    getJSONGuides();
+    getJSONGuides().then((data) {
+      setState(() {
+        guidesData = data;
+      });
+    });
   }
 
   @override
