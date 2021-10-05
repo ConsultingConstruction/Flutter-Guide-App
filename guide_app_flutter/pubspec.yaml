@@ -65,7 +65,10 @@ flutter:
     - assets/
     - assets/JSON/guides.json
     - assets/JSON/tools.json
-    - assets/JSON/walls.json
+    - assets/JSON/tool_1.json
+    - assets/JSON/tool_2.json
+    - assets/JSON/tool_3.json
+    - assets/JSON/tool_4.json
   #   - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see

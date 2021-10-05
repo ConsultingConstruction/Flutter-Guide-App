@@ -4,6 +4,8 @@ import 'package:auto_route/annotations.dart';
 import 'package:flutter/material.dart';
 import 'package:guide_app_flutter/controllers/tools_controller.dart';
 import 'package:guide_app_flutter/models/tools.dart';
+import 'package:auto_route/auto_route.dart';
+import 'package:guide_app_flutter/utils/router.gr.dart';
 
 class ToolsView extends StatefulWidget {
   const ToolsView({
@@ -54,8 +56,8 @@ class _ToolsViewState extends State<ToolsView> {
   Widget itemBuilder(BuildContext context, int index) {
     return GestureDetector(
       onTap: () {
-        // context
-        //     .pushRoute(ToolsViewRoute(guideId: toolsData?.guides?[index].id));
+        context.pushRoute(DescriptionViewRoute(
+            toolId: toolsData?.tools?[index].id, guideId: widget.guideId));
       },
       child: Card(
         child: Center(
