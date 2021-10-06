@@ -1,5 +1,4 @@
 import 'dart:convert';
-import 'dart:typed_data';
 
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
@@ -16,8 +15,6 @@ class GuidesView extends StatefulWidget {
 
 class _GuidesViewState extends State<GuidesView> {
   Guides? guidesData;
-
-  Uint8List? image;
 
   @override
   void initState() {
@@ -69,8 +66,8 @@ class _GuidesViewState extends State<GuidesView> {
                       child: Image.memory(
                         base64Decode(
                             guidesData?.guides?[index].iconByteData ?? ""),
-                        width: 250,
-                        height: 250,
+                        // width: 250,
+                        // height: 250,
                       ),
                     )
                   : const SizedBox(),
