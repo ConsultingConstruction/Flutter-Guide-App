@@ -6,7 +6,7 @@ import 'package:guide_app_flutter/models/tool.dart';
 Future<Tool?> getJSONDescription(int? tool) async {
   // ! Code to generate base64 strings from files ////////////////////////////
   // final ibuffer =
-  //     (await rootBundle.load("images/ARCHICAD.png")).buffer.asUint8List();
+  //     (await rootBundle.load("images/Slabs_d_5.png")).buffer.asUint8List();
   // final bufferEncode = base64Encode(ibuffer);
   // print(bufferEncode);
   // ! ///////////////////////////////////////////////////////////////////////
